@@ -24,7 +24,7 @@ router.get('/:id?',
 });
 
 
-router.post('/', 
+router.post('/:id?', 
 function(request, response) {
   kortti.add(request.body, function(err, dbResult) {
     if (err) {
