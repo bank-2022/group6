@@ -7,6 +7,7 @@ var indexRouter = require('./routes/index');
 var korttiRouter = require('./routes/kortti');
 var tiliRouter = require('./routes/tili');
 var tilitapahtumatRouter = require('./routes/tilitapahtumat');
+var asiakasRouter = require('./routes/asiakas');
 
 var app = express();
 
@@ -20,4 +21,5 @@ app.use('/', indexRouter);
 app.use('/kortti', korttiRouter);
 app.use('/tili', tiliRouter);
 app.use('/tilitapahtumat', tilitapahtumatRouter);
+app.use('/asiakas', asiakasRouter);
 module.exports = app;
