@@ -6,6 +6,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var korttiRouter = require('./routes/kortti');
 var tiliRouter = require('./routes/tili');
+var tilitapahtumatRouter = require('./routes/tilitapahtumat');
 
 var app = express();
 
@@ -18,5 +19,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/kortti', korttiRouter);
 app.use('/tili', tiliRouter);
-
+app.use('/tilitapahtumat', tilitapahtumatRouter);
 module.exports = app;
