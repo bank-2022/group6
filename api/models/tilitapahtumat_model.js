@@ -9,8 +9,8 @@ const tilitapahtumat = {
   },
   add: function(tilitapahtumat, callback) {
     return db.query(
-      'insert into tilitapahtumat (PaivajaAika,Tapahtuma,Summa) values(?,?,?)',
-      [tilitapahtumat.PaivajaAika, tilitapahtumat.Tapahtuma, tilitapahtumat.Summa],
+      'insert into tilitapahtumat (Tapahtuma,Summa,idTili,idKortti) values(?,?,?,?)',
+      [tilitapahtumat.Tapahtuma, tilitapahtumat.Summa, tilitapahtumat.idTili, tilitapahtumat.idKortti],
       callback
     );
   },
@@ -19,8 +19,8 @@ const tilitapahtumat = {
   },
   update: function(id, tilitapahtumat, callback) {
     return db.query(
-      'update tilitapahtumat set Paiva_ja_Aika=?,Tapahtuma=?, Summa=? where id_tilitapahtumat=?',
-      [tilitapahtumat.PaivajaAika, tilitapahtumat.Tapahtuma, tilitapahtumat.Summa, id],
+      'update tilitapahtumat set Tapahtuma=?, Summa=?, idTili, idKortti=? where id_tilitapahtumat=?',
+      [tilitapahtumat.Tapahtuma, tilitapahtumat.Summa, tilitapahtumat.idTili, tilitapahtumat.idKortti, id],
       callback
     );
   }
