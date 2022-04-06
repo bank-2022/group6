@@ -9,8 +9,8 @@ const kortti = {
   },
   add: function(kortti, callback) {
     return db.query(
-      'INSERT into kortti (Kortinnumero,Pin) values(?,?)',
-      [kortti.Kortinnumero, kortti.Pin],
+      'INSERT into kortti (Kortinnumero,Pin, idAsiakas, idTili) values(?,?,?,?)',
+      [kortti.Kortinnumero, kortti.Pin, kortti.idAsiakas, kortti.idTili],
       callback
     );
   },
@@ -19,8 +19,8 @@ const kortti = {
   },
   update: function(id, kortti, callback) {
     return db.query(
-      'UPDATE kortti set Kortinnumero=?, Pin=? where idKortti=?',
-      [kortti.Kortinnumero, kortti.Pin, id],
+      'UPDATE kortti set Kortinnumero=?, Pin=?, idAsiakas=?, idTili=? where idKortti=?',
+      [kortti.Kortinnumero, kortti.Pin, kortti.idAsiakas, kortti.idTili, id],
       callback
     );
   }
