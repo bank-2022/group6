@@ -9,18 +9,18 @@ const tilitapahtumat = {
   },
   add: function(tilitapahtumat, callback) {
     return db.query(
-      'insert into tilitapahtumat (paiva_ja_aika,tapahtuma,summa,kortti_idkortti) values(?,?,?,?)',
-      [tilitapahtumat.paiva_ja_aika, tilitapahtumat.tapahtuma, tilitapahtumat.summa, tilitapahtumat.kortti_idkortti],
+      'insert into tilitapahtumat (PaivajaAika,Tapahtuma,Summa) values(?,?,?)',
+      [tilitapahtumat.PaivajaAika, tilitapahtumat.Tapahtuma, tilitapahtumat.Summa],
       callback
     );
   },
   delete: function(id, callback) {
-    return db.query('delete from tilitapahtumat where id_tilitapahtumat=?', [id], callback);
+    return db.query('DELETE from tilitapahtumat where id_tilitapahtumat=?', [id], callback);
   },
   update: function(id, tilitapahtumat, callback) {
     return db.query(
-      'update tilitapahtumat set paiva_ja_aika=?,tapahtuma=?, summa=?, kortti_idkortti=? where id_tilitapahtumat=?',
-      [tilitapahtumat.paiva_ja_aika, tilitapahtumat.tapahtuma, tilitapahtumat.summa, tilitapahtumat.kortti_idkortti, id],
+      'update tilitapahtumat set Paiva_ja_Aika=?,Tapahtuma=?, Summa=? where id_tilitapahtumat=?',
+      [tilitapahtumat.PaivajaAika, tilitapahtumat.Tapahtuma, tilitapahtumat.Summa, id],
       callback
     );
   }

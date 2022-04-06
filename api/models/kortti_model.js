@@ -2,25 +2,25 @@ const db = require('../database');
 
 const kortti = {
   getById: function(id, callback) {
-    return db.query('select * from kortti where id_kortti=?', [id], callback);
+    return db.query('SELECT * from kortti where idKortti=?', [id], callback);
   },
   getAll: function(callback) {
-    return db.query('select * from kortti', callback);
+    return db.query('SELECT * from kortti', callback);
   },
   add: function(kortti, callback) {
     return db.query(
-      'insert into kortti (idKortti,Kortinnumero,Pin) values(?,?,?)',
-      [kortti.idKortti, kortti.Kortinnumero, kortti.Pin],
+      'INSERT into kortti (Kortinnumero,Pin) values(?,?)',
+      [kortti.Kortinnumero, kortti.Pin],
       callback
     );
   },
   delete: function(id, callback) {
-    return db.query('delete from kortti where id_kortti=?', [id], callback);
+    return db.query('DELETE from kortti where idKortti=?', [id], callback);
   },
   update: function(id, kortti, callback) {
     return db.query(
-      'update kortti set idKortti=?,Kortinnumero=?, Pin=? where id_kortti=?',
-      [kortti.idKortti, kortti.Kortinnumero, kortti.Pin, id],
+      'UPDATE kortti set Kortinnumero=?, Pin=? where idKortti=?',
+      [kortti.Kortinnumero, kortti.Pin, id],
       callback
     );
   }
