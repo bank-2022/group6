@@ -6,6 +6,4 @@ testiExe/build/
 
 testiExe/*.user
 
-PinDll/build/
-
 PinDll/*.user
