@@ -2,6 +2,8 @@ api/node_modules/
 
 api/.env
 
-bankautomat/build/
+testiExe/build/
 
-bankautomat/*.user
+testiExe/*.user
+
+PinDll/*.user
