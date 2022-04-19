@@ -10,15 +10,23 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    pinikkuna.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    pinikkuna.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    pinikkuna.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+win32: LIBS += -L$$PWD/../PinDll/build/debug/ -lPinDll
+
+INCLUDEPATH += $$PWD/../PinDll
+DEPENDPATH += $$PWD/../PinDll
