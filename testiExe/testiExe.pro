@@ -28,7 +28,13 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 
 
+
 win32: LIBS += -L$$PWD/../PinDll/build/debug/ -lPinDll
 
 INCLUDEPATH += $$PWD/../PinDll
 DEPENDPATH += $$PWD/../PinDll
+
+win32: LIBS += -L$$PWD/../RFID_DLL/build/debug/ -lRFID_DLL
+
+INCLUDEPATH += $$PWD/../RFID_DLL
+DEPENDPATH += $$PWD/../RFID_DLL

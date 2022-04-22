@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="avaa">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>190</y>
+      <x>120</x>
+      <y>170</y>
       <width>191</width>
       <height>91</height>
      </rect>
