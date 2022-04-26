@@ -53,7 +53,7 @@ void RFID_DLL::readData()
 
 void RFID_DLL::data()
 {
-    qDebug() << "Kortin ID:" << str;
+    qDebug() << "Kortin ID:" << muutettu;
 }
 
 
@@ -63,22 +63,27 @@ void RFID_DLL::engineslot()
     qDebug() << "Muutosikkuna avattu";
     if(muutettu == "\r\n-0600064922\r\n>")
     {
-        str = "\r\n-0600064922\r\n>";
-        str = str.simplified();
-        str.remove(' ');
-        str.remove(QRegularExpression("[-]"));
-        str.remove(QRegularExpression("[>]"));
-        qDebug() << str;
+        muutettu = "\r\n-0600064922\r\n>";
+        muutettu = muutettu.simplified();
+        muutettu.remove(' ');
+        muutettu.remove(QRegularExpression("[-]"));
+        muutettu.remove(QRegularExpression("[>]"));
+        qDebug() << muutettu;
     }
     else
     {
-        str = "\r\n-06000DE54E\r\n>";
-        str = str.simplified();
-        str.remove(' ');
-        str.remove(QRegularExpression("[-]"));
-        str.remove(QRegularExpression("[>]"));
-        qDebug() << str;
+        muutettu = "\r\n-06000DE54E\r\n>";
+        muutettu = muutettu.simplified();
+        muutettu.remove(' ');
+        muutettu.remove(QRegularExpression("[-]"));
+        muutettu.remove(QRegularExpression("[>]"));
+        qDebug() << muutettu;
     }
 
 
+}
+
+const QString &RFID_DLL::getMuutettu() const
+{
+    return muutettu;
 }

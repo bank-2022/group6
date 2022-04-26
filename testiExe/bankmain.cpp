@@ -12,3 +12,39 @@ BankMain::~BankMain()
 {
     delete ui;
 }
+
+void BankMain::on_actions_clicked()
+{
+
+}
+
+
+void BankMain::on_previous_clicked()
+{
+
+}
+
+
+void BankMain::on_nextactions_clicked()
+{
+
+}
+
+
+void BankMain::on_money_clicked()
+{
+
+}
+
+
+void BankMain::on_close_clicked()
+{
+
+}
+
+
+void BankMain::on_pushButton_clicked()
+{
+
+}
+

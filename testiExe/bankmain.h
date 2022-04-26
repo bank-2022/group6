@@ -16,6 +16,14 @@ public:
     explicit BankMain(QWidget *parent = nullptr);
     ~BankMain();
 
+private slots:
+    void on_actions_clicked();
+    void on_previous_clicked();
+    void on_nextactions_clicked();
+    void on_money_clicked();
+    void on_close_clicked();
+    void on_pushButton_clicked();
+
 private:
     Ui::BankMain *ui;
 };
