@@ -15,15 +15,13 @@ MainWindow::MainWindow(QWidget *parent)
 
     QObject::connect(Ppinikkuna, SIGNAL(sulje_2()),
     Ppinikkuna, SLOT(aloitatimer()), Qt::QueuedConnection);
-
-    QObject::connect(Ppinikkuna, SIGNAL(lukitse()),
-    this, SLOT(korttilukittu()), Qt::QueuedConnection);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
     delete Ppinikkuna;
+    delete pRFID_DLL;
 }
 
 void MainWindow::korttilukittu()
@@ -33,10 +31,16 @@ void MainWindow::korttilukittu()
 
 void MainWindow::on_avaa_clicked()
 {
+    qDebug() << "Nappia painettu";
+    emit nappipainettu();
+
+}
+
+void MainWindow::avaaPIN()
+{
+    this->close();
     Ppinikkuna->show();
     ui->label->setText("");
     emit sulje_1();
 }
-
-
 
