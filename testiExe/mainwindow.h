@@ -35,12 +35,14 @@ private slots:
     void lahetaeteenpain();
     void signaalitakaisin();
 
+    void on_toinennappi_clicked();
+
 private:
     Ui::MainWindow *ui;
     PinDll * PinDllClass;
     pinikkuna *Ppinikkuna;
     RFID_DLL *pRFID_DLL;
-    QString str;
+    QString muutettu;
 
 };
 #endif // MAINWINDOW_H

@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="avaa">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>170</y>
+      <x>230</x>
+      <y>290</y>
       <width>191</width>
       <height>91</height>
      </rect>
@@ -38,6 +38,19 @@
     </property>
     <property name="text">
      <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="toinennappi">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>150</y>
+      <width>191</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ilman rfid</string>
     </property>
    </widget>
   </widget>

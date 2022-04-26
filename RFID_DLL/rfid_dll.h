@@ -21,6 +21,8 @@ public:
     void data();
 
 
+    const QString &getMuutettu() const;
+
 signals:
     void avaaikkuna();
 
