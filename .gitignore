@@ -7,3 +7,5 @@ testiExe/build/
 testiExe/*.user
 
 PinDll/*.user
+
+RFID_DLL/*.user
