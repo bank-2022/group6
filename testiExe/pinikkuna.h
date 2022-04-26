@@ -5,7 +5,14 @@
 #include <QString>
 #include <QDebug>
 
+#include <QtNetwork>
+#include <QNetworkAccessManager>
+#include <QJsonDocument>
+
 #include "pindll.h"
+#include "bankmain.h"
+#include "myurl.h"
+
 
 namespace Ui {
 class pinikkuna;
@@ -22,11 +29,15 @@ public:
 
 signals:
     void sulje_2();
+    void lukitse();
 
 public slots:
     void aloitatimer();
+    void pinslot(QNetworkReply *reply);
 
 private slots:
+    void suljepinikkuna();
+
     void on_Button_1_clicked();
     void on_Button_2_clicked();
     void on_Button_3_clicked();
@@ -36,15 +47,32 @@ private slots:
     void on_Button_7_clicked();
     void on_Button_8_clicked();
     void on_Button_9_clicked();
-    void on_send_clicked();
     void on_clear_clicked();
-
-    void suljepinikkuna();
+    void on_laheta_clicked();
 
 private:
+    QString annettupin;
+    QString annettukorttinnumero;
+
+    int attempts=3;
+    void tarkistaAttempts();
+    void lukitsekortti();
+    QString lukittukortinnumero;
+
+
     Ui::pinikkuna *ui;
     PinDll * PinDllClass;
     QTimer *timer;
+    BankMain *PBankMain;
+
+    MyUrl *PMyUrl;
+    QString base_url;
+    QString id;
+    QNetworkAccessManager *loginmanager;
+    QNetworkReply *reply;
+    QByteArray response_data;
+
+
 };
 
 #endif // PINIKKUNA_H

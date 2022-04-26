@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QTimer>
 #include <QDebug>
+#include <QString>
 
 #include "pindll.h"
 #include "pinikkuna.h"
@@ -22,6 +23,9 @@ public:
 
 signals:
     void sulje_1();
+
+public slots:
+    void korttilukittu();
 
 private slots:
     void on_avaa_clicked();

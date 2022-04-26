@@ -9,7 +9,7 @@ const asiakas = {
   },
   add: function(asiakas, callback) {
     return db.query(
-      'insert into asiakas (Nimi,Osoite, Puhelinnumero,Tunnus) values(?,?,?,?)',
+      'insert into asiakas (Nimi,Osoite,Puhelinnumero,Tunnus) values(?,?,?,?)',
       [asiakas.Nimi, asiakas.Osoite, asiakas.Puhelinnumero, asiakas.Tunnus],
       callback
     );

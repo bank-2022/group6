@@ -10,12 +10,14 @@ MainWindow::MainWindow(QWidget *parent)
 
     Ppinikkuna = new pinikkuna;
 
-
     QObject::connect(this, SIGNAL(sulje_1()),
     Ppinikkuna, SLOT(aloitatimer()), Qt::QueuedConnection);
 
     QObject::connect(Ppinikkuna, SIGNAL(sulje_2()),
     Ppinikkuna, SLOT(aloitatimer()), Qt::QueuedConnection);
+
+    QObject::connect(Ppinikkuna, SIGNAL(lukitse()),
+    this, SLOT(korttilukittu()), Qt::QueuedConnection);
 }
 
 MainWindow::~MainWindow()
@@ -24,9 +26,17 @@ MainWindow::~MainWindow()
     delete Ppinikkuna;
 }
 
+void MainWindow::korttilukittu()
+{
+    ui->label->setText("Given card has been locked");
+}
+
 void MainWindow::on_avaa_clicked()
 {
     Ppinikkuna->show();
+    ui->label->setText("");
     emit sulje_1();
 }
+
+
 
