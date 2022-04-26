@@ -26,6 +26,9 @@ signals:
     void RFID_signaalitakaisin();
     void pinIkkuna();
 
+public slots:
+    void korttilukittu();
+
 private slots:
     void on_avaa_clicked();
     void avaaPIN();
