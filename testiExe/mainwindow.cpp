@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     Ppinikkuna = new pinikkuna;
     pRFID_DLL = new RFID_DLL;
+    Pbankmain = new BankMain;
     QObject::connect(pRFID_DLL, SIGNAL(idLuettu()),
             this, SLOT(signaalitakaisin()));
     QObject::connect(this, SIGNAL(nappipainettu()),
@@ -21,10 +22,16 @@ MainWindow::MainWindow(QWidget *parent)
                      this, SLOT(avaaPIN()));
 
     QObject::connect(this, SIGNAL(sulje_1()),
-    Ppinikkuna, SLOT(aloitatimer()), Qt::QueuedConnection);
-
+    Ppinikkuna, SLOT(aloitatimer10()));
     QObject::connect(Ppinikkuna, SIGNAL(sulje_2()),
-    Ppinikkuna, SLOT(aloitatimer()), Qt::QueuedConnection);
+    Ppinikkuna, SLOT(aloitatimer10()));
+    QObject::connect(Ppinikkuna, SIGNAL(sulje_3()),
+    Pbankmain, SLOT(aloitatimer30()));
+
+    QObject::connect(Ppinikkuna, SIGNAL(lukitse()),
+    this, SLOT(korttilukittu()));
+
+
 }
 
 MainWindow::~MainWindow()
@@ -32,6 +39,7 @@ MainWindow::~MainWindow()
     delete ui;
     delete Ppinikkuna;
     delete pRFID_DLL;
+    delete Pbankmain;
 }
 
 void MainWindow::korttilukittu()
@@ -48,7 +56,7 @@ void MainWindow::on_avaa_clicked()
 
 void MainWindow::avaaPIN()
 {
-    this->close();
+    //this->close();
     Ppinikkuna->show();
     ui->label->setText("");
     emit sulje_1();

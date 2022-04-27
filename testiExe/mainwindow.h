@@ -41,6 +41,7 @@ private:
     Ui::MainWindow *ui;
     PinDll * PinDllClass;
     pinikkuna *Ppinikkuna;
+    BankMain *Pbankmain;
     RFID_DLL *pRFID_DLL;
     QString muutettu;
 
