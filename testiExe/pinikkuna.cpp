@@ -15,15 +15,14 @@ pinikkuna::pinikkuna(QWidget *parent) :
     timer = new QTimer();
     connect(this->timer,SIGNAL(timeout()),
                 this,SLOT(suljepinikkuna()));
+
 }
 
 pinikkuna::~pinikkuna()
 {
     delete ui;
     delete timer;
-    delete PBankMain;
     timer = nullptr;
-
 }
 
 
@@ -76,10 +75,10 @@ void pinikkuna::on_Button_9_clicked()
 
 
 
-void pinikkuna::aloitatimer()
+void pinikkuna::aloitatimer10()
 {
     timer->start(10000);
-    qDebug()<<"timer aloitettu";
+    qDebug()<<"10s timer aloitettu";
 }
 
 void pinikkuna::suljepinikkuna()
@@ -129,7 +128,7 @@ void pinikkuna::pinslot(QNetworkReply *reply)
 
     if (response_data!="false"){
             if(lukittukortinnumero == annettukorttinnumero){
-                ui->label->setText("This card is allready locked");
+                ui->label->setText("This card is locked");
             }
             else{
                 PBankMain = new BankMain;
@@ -137,6 +136,7 @@ void pinikkuna::pinslot(QNetworkReply *reply)
                 ui->label->setText("");
                 this->close();
                 PBankMain->show();
+                emit sulje_3();
             }
     }
     else {

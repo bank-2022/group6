@@ -29,10 +29,11 @@ public:
 
 signals:
     void sulje_2();
+    void sulje_3();
     void lukitse();
 
 public slots:
-    void aloitatimer();
+    void aloitatimer10();
     void pinslot(QNetworkReply *reply);
 
 private slots:
