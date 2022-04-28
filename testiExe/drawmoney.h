@@ -1,7 +1,12 @@
 #ifndef DRAWMONEY_H
 #define DRAWMONEY_H
+//#include "bankmain.h"
+
 
 #include <QWidget>
+#include <QDebug>
+#include <QTimer>
+
 
 namespace Ui {
 class drawmoney;
@@ -15,6 +20,11 @@ public:
     explicit drawmoney(QWidget *parent = nullptr);
     ~drawmoney();
 
+signals:
+    void sulje_6();
+public slots:
+    void aloitatimer10_2();
+
 private slots:
     void on_CloseButton_clicked();
     void on_kaksikymmenta_clicked();
@@ -26,8 +36,12 @@ private slots:
     void on_viisisataa_clicked();
     void on_drawbutton_clicked();
 
+    void suljedrawikkuna();
+
 private:
     Ui::drawmoney *ui;
+    QTimer *timer;
+
 };
 
 #endif // DRAWMONEY_H

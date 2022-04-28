@@ -2,6 +2,7 @@
 #define BANKMAIN_H
 #include "rest_apidll.h"
 #include "drawmoney.h"
+
 #include <QDialog>
 #include <QDebug>
 #include <QTimer>
@@ -21,6 +22,7 @@ public:
 
 signals:
     void sulje_4();
+    void sulje_5();
 
 public slots:
     void aloitatimer30();
