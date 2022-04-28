@@ -12,9 +12,11 @@ BankMain::BankMain(QWidget *parent) :
     pREST_APIDLL = new REST_APIDLL;
     pDrawMoney = new drawmoney;
     pREST_APIDLL->tiedot();
-    ui->accountOwner->setText(pREST_APIDLL->getAsiakas());
-    ui->balance->setText("700");
-
+    pREST_APIDLL->tiliTiedot();
+    connect(pREST_APIDLL, SIGNAL(pois()),
+            this, SLOT(RestApistaPois()));
+    connect(pREST_APIDLL, SIGNAL(pois2()),
+            this, SLOT(RestApistaPois2()));
     connect(this->timer,SIGNAL(timeout()),
                 this,SLOT(suljemainikkuna()));
     QObject::connect(this, SIGNAL(sulje_4()),
@@ -64,6 +66,19 @@ void BankMain::on_close_clicked()
 void BankMain::on_pushButton_clicked()
 {
     emit sulje_4();
+}
+
+void BankMain::RestApistaPois()
+{
+    qDebug() << "Asiakas" << pREST_APIDLL->getAsiakas();
+    ui->accountOwner->setText(pREST_APIDLL->getAsiakas());
+
+}
+
+void BankMain::RestApistaPois2()
+{
+    qDebug() << "Saldo" << pREST_APIDLL->getSaldo();
+    ui->balance->setText(pREST_APIDLL->getSaldo());
 }
 
 
