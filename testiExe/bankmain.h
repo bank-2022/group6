@@ -32,7 +32,8 @@ private slots:
     void on_money_clicked();
     void on_close_clicked();
     void on_pushButton_clicked();
-
+    void RestApistaPois();
+    void RestApistaPois2();
     void suljemainikkuna();
 
 private:
