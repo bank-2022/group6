@@ -11,6 +11,7 @@ BankMain::BankMain(QWidget *parent) :
     timer = new QTimer();
     pREST_APIDLL = new REST_APIDLL;
     pDrawMoney = new drawmoney;
+
     pREST_APIDLL->tiedot();
     pREST_APIDLL->tiliTiedot();
     connect(pREST_APIDLL, SIGNAL(pois()),
@@ -19,8 +20,13 @@ BankMain::BankMain(QWidget *parent) :
             this, SLOT(RestApistaPois2()));
     connect(this->timer,SIGNAL(timeout()),
                 this,SLOT(suljemainikkuna()));
-    QObject::connect(this, SIGNAL(sulje_4()),
+
+    connect(this, SIGNAL(sulje_4()),
     this, SLOT(aloitatimer30()));
+    connect(this, SIGNAL(sulje_5()),
+    pDrawMoney, SLOT(aloitatimer10_2()));
+
+
 }
 
 BankMain::~BankMain()
@@ -53,12 +59,12 @@ void BankMain::on_nextactions_clicked()
 void BankMain::on_money_clicked()
 {
     pDrawMoney->show();
+    emit sulje_5();
 }
 
 
 void BankMain::on_close_clicked()
 {
-
     this->close();
 }
 
