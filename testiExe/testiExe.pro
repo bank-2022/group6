@@ -11,6 +11,7 @@ CONFIG += c++11
 
 SOURCES += \
     bankmain.cpp \
+    drawmoney.cpp \
     main.cpp \
     mainwindow.cpp \
     myurl.cpp \
@@ -18,12 +19,14 @@ SOURCES += \
 
 HEADERS += \
     bankmain.h \
+    drawmoney.h \
     mainwindow.h \
     myurl.h \
     pinikkuna.h
 
 FORMS += \
     bankmain.ui \
+    drawmoney.ui \
     mainwindow.ui \
     pinikkuna.ui
 
@@ -44,3 +47,8 @@ win32: LIBS += -L$$PWD/../RFID_DLL/build/debug/ -lRFID_DLL
 
 INCLUDEPATH += $$PWD/../RFID_DLL
 DEPENDPATH += $$PWD/../RFID_DLL
+
+win32: LIBS += -L$$PWD/../REST_APIDLL/build/debug/ -lREST_APIDLL
+
+INCLUDEPATH += $$PWD/../REST_APIDLL
+DEPENDPATH += $$PWD/../REST_APIDLL

@@ -1,6 +1,7 @@
 #ifndef BANKMAIN_H
 #define BANKMAIN_H
-
+#include "rest_apidll.h"
+#include "drawmoney.h"
 #include <QDialog>
 #include <QDebug>
 #include <QTimer>
@@ -37,6 +38,8 @@ private slots:
 private:
     Ui::BankMain *ui;
     QTimer *timer;
+    REST_APIDLL *pREST_APIDLL;
+    drawmoney *pDrawMoney;
 };
 
 #endif // BANKMAIN_H

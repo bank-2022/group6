@@ -9,7 +9,11 @@ BankMain::BankMain(QWidget *parent) :
     ui->setupUi(this);
 
     timer = new QTimer();
-
+    pREST_APIDLL = new REST_APIDLL;
+    pDrawMoney = new drawmoney;
+    pREST_APIDLL->tiedot();
+    ui->accountOwner->setText(pREST_APIDLL->getAsiakas());
+    ui->balance->setText("700");
 
     connect(this->timer,SIGNAL(timeout()),
                 this,SLOT(suljemainikkuna()));
@@ -46,7 +50,7 @@ void BankMain::on_nextactions_clicked()
 
 void BankMain::on_money_clicked()
 {
-
+    pDrawMoney->show();
 }
 
 
