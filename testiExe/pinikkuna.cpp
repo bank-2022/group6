@@ -9,6 +9,7 @@ pinikkuna::pinikkuna(QWidget *parent) :
 {
     ui->setupUi(this);
     PMyUrl = new MyUrl;
+    pRFID_DLL = new RFID_DLL;
 
     base_url = PMyUrl->getBase_url();
 
@@ -22,6 +23,7 @@ pinikkuna::~pinikkuna()
 {
     delete ui;
     delete timer;
+    delete pRFID_DLL;
     timer = nullptr;
 }
 

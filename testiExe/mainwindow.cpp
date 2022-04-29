@@ -72,7 +72,6 @@ void MainWindow::lahetaeteenpain()
 void MainWindow::signaalitakaisin()
 {
     qDebug() << "Data tuli exeen";
-    pRFID_DLL->data();
     muutettu = pRFID_DLL->getMuutettu();
     qDebug() << "Data EXE:ssä" << muutettu;
     emit pinIkkuna();

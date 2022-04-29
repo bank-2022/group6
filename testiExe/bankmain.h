@@ -37,6 +37,7 @@ private slots:
     void RestApistaPois();
     void RestApistaPois2();
     void suljemainikkuna();
+    void RestApistaPois3();
 
 private:
     Ui::BankMain *ui;

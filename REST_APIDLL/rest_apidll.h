@@ -15,18 +15,21 @@ public:
     ~REST_APIDLL();
     void tiedot();
     void tiliTiedot();
+    void tiliTapahtumat();
 
     const QString &getAsiakas() const;
-
     const QString &getSaldo() const;
+    const QString &gettilitapahtumat() const;
 
 signals:
     void pois();
     void pois2();
+    void pois3();
 
 private slots:
     void getAsiakas(QNetworkReply *reply);
     void getTili(QNetworkReply *reply);
+    void getTiliTapahtumat(QNetworkReply *reply);
 
 private:
     QNetworkAccessManager *getManager;
@@ -34,6 +37,7 @@ private:
     QByteArray response_data;
     QString asiakas;
     QString saldo;
+    QString tilitapahtumat;
 };
 
 #endif // REST_APIDLL_H
