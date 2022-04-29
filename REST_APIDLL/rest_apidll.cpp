@@ -50,6 +50,8 @@ void REST_APIDLL::tiliTapahtumat()
 }
 
 
+
+
 void REST_APIDLL::getAsiakas(QNetworkReply *reply)
 {
     response_data=reply->readAll();
@@ -80,6 +82,8 @@ void REST_APIDLL::getTili(QNetworkReply *reply)
     emit pois2();
 }
 
+
+
 void REST_APIDLL::getTiliTapahtumat(QNetworkReply *reply)
 {
     response_data=reply->readAll();
@@ -93,6 +97,34 @@ void REST_APIDLL::getTiliTapahtumat(QNetworkReply *reply)
     reply->deleteLater();
     getManager->deleteLater();
     emit pois3();
+}
+void REST_APIDLL::addtilitapahtumat(int summa)
+{
+    StringTapahtuma="Nosto";
+    StringSumma=QString::number(summa);
+
+    QJsonObject jsonObj;
+    jsonObj.insert("Tapahtuma",StringTapahtuma);
+    jsonObj.insert("Summa",StringSumma);
+
+
+    QString base_url="http://localhost:3000/tilitapahtumat";
+    QNetworkRequest request((base_url));
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+
+    postManager = new QNetworkAccessManager;
+    connect(postManager, SIGNAL(finished (QNetworkReply*)), this, SLOT(addTiliTapahtumat(QNetworkReply*)));
+
+
+    reply = postManager->post(request, QJsonDocument(jsonObj).toJson());
+}
+
+void REST_APIDLL::addTiliTapahtumat(QNetworkReply *reply)
+{
+    response_data=reply->readAll();
+        qDebug()<<response_data;
+        reply->deleteLater();
+        postManager->deleteLater();
 }
 
 const QString &REST_APIDLL::getSaldo() const

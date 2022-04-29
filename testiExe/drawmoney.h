@@ -2,6 +2,7 @@
 #define DRAWMONEY_H
 //#include "bankmain.h"
 
+#include "rest_apidll.h"
 
 #include <QWidget>
 #include <QDebug>
@@ -39,8 +40,12 @@ private slots:
     void suljedrawikkuna();
 
 private:
+    int summa=0;
+    QString tapahtuma="Nosto";
+
     Ui::drawmoney *ui;
     QTimer *timer;
+    REST_APIDLL *pREST_APIDLL;
 
 };
 
