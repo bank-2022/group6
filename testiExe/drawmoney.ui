@@ -133,11 +133,14 @@
   <widget class="QLineEdit" name="lineEdit">
    <property name="geometry">
     <rect>
-     <x>140</x>
+     <x>130</x>
      <y>90</y>
      <width>291</width>
      <height>24</height>
     </rect>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>
