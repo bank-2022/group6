@@ -12,6 +12,7 @@
 #include "pindll.h"
 #include "bankmain.h"
 #include "myurl.h"
+#include "rfid_dll.h"
 
 
 namespace Ui {
@@ -65,6 +66,7 @@ private:
     PinDll * PinDllClass;
     QTimer *timer;
     BankMain *PBankMain;
+    RFID_DLL *pRFID_DLL;
 
     MyUrl *PMyUrl;
     QString base_url;

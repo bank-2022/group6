@@ -20,6 +20,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+
 signals:
     void sulje_1();
     void nappipainettu();
@@ -44,6 +45,7 @@ private:
     BankMain *Pbankmain;
     RFID_DLL *pRFID_DLL;
     QString muutettu;
+
 
 };
 #endif // MAINWINDOW_H

@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_REST_APIDLL_t {
-    QByteArrayData data[8];
-    char stringdata0[64];
+    QByteArrayData data[10];
+    char stringdata0[88];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -36,14 +36,17 @@ QT_MOC_LITERAL(0, 0, 11), // "REST_APIDLL"
 QT_MOC_LITERAL(1, 12, 4), // "pois"
 QT_MOC_LITERAL(2, 17, 0), // ""
 QT_MOC_LITERAL(3, 18, 5), // "pois2"
-QT_MOC_LITERAL(4, 24, 10), // "getAsiakas"
-QT_MOC_LITERAL(5, 35, 14), // "QNetworkReply*"
-QT_MOC_LITERAL(6, 50, 5), // "reply"
-QT_MOC_LITERAL(7, 56, 7) // "getTili"
+QT_MOC_LITERAL(4, 24, 5), // "pois3"
+QT_MOC_LITERAL(5, 30, 10), // "getAsiakas"
+QT_MOC_LITERAL(6, 41, 14), // "QNetworkReply*"
+QT_MOC_LITERAL(7, 56, 5), // "reply"
+QT_MOC_LITERAL(8, 62, 7), // "getTili"
+QT_MOC_LITERAL(9, 70, 17) // "getTiliTapahtumat"
 
     },
-    "REST_APIDLL\0pois\0\0pois2\0getAsiakas\0"
-    "QNetworkReply*\0reply\0getTili"
+    "REST_APIDLL\0pois\0\0pois2\0pois3\0getAsiakas\0"
+    "QNetworkReply*\0reply\0getTili\0"
+    "getTiliTapahtumat"
 };
 #undef QT_MOC_LITERAL
 
@@ -53,28 +56,32 @@ static const uint qt_meta_data_REST_APIDLL[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       2,       // signalCount
+       3,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   34,    2, 0x06 /* Public */,
-       3,    0,   35,    2, 0x06 /* Public */,
+       1,    0,   44,    2, 0x06 /* Public */,
+       3,    0,   45,    2, 0x06 /* Public */,
+       4,    0,   46,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       4,    1,   36,    2, 0x08 /* Private */,
-       7,    1,   39,    2, 0x08 /* Private */,
+       5,    1,   47,    2, 0x08 /* Private */,
+       8,    1,   50,    2, 0x08 /* Private */,
+       9,    1,   53,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void,
 
  // slots: parameters
-    QMetaType::Void, 0x80000000 | 5,    6,
-    QMetaType::Void, 0x80000000 | 5,    6,
+    QMetaType::Void, 0x80000000 | 6,    7,
+    QMetaType::Void, 0x80000000 | 6,    7,
+    QMetaType::Void, 0x80000000 | 6,    7,
 
        0        // eod
 };
@@ -87,21 +94,30 @@ void REST_APIDLL::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         switch (_id) {
         case 0: _t->pois(); break;
         case 1: _t->pois2(); break;
-        case 2: _t->getAsiakas((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
-        case 3: _t->getTili((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
+        case 2: _t->pois3(); break;
+        case 3: _t->getAsiakas((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
+        case 4: _t->getTili((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
+        case 5: _t->getTiliTapahtumat((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-        case 2:
+        case 3:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
                 *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QNetworkReply* >(); break;
             }
             break;
-        case 3:
+        case 4:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+            case 0:
+                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QNetworkReply* >(); break;
+            }
+            break;
+        case 5:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
@@ -122,6 +138,13 @@ void REST_APIDLL::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
             using _t = void (REST_APIDLL::*)();
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&REST_APIDLL::pois2)) {
                 *result = 1;
+                return;
+            }
+        }
+        {
+            using _t = void (REST_APIDLL::*)();
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&REST_APIDLL::pois3)) {
+                *result = 2;
                 return;
             }
         }
@@ -157,13 +180,13 @@ int REST_APIDLL::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 6;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 6;
     }
     return _id;
 }
@@ -178,6 +201,12 @@ void REST_APIDLL::pois()
 void REST_APIDLL::pois2()
 {
     QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
+}
+
+// SIGNAL 2
+void REST_APIDLL::pois3()
+{
+    QMetaObject::activate(this, &staticMetaObject, 2, nullptr);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

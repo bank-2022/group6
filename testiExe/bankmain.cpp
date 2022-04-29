@@ -14,10 +14,13 @@ BankMain::BankMain(QWidget *parent) :
 
     pREST_APIDLL->tiedot();
     pREST_APIDLL->tiliTiedot();
+    pREST_APIDLL->tiliTapahtumat();
     connect(pREST_APIDLL, SIGNAL(pois()),
             this, SLOT(RestApistaPois()));
     connect(pREST_APIDLL, SIGNAL(pois2()),
             this, SLOT(RestApistaPois2()));
+    connect(pREST_APIDLL, SIGNAL(pois3()),
+            this, SLOT(RestApistaPois3()));
     connect(this->timer,SIGNAL(timeout()),
                 this,SLOT(suljemainikkuna()));
 
@@ -78,7 +81,6 @@ void BankMain::RestApistaPois()
 {
     qDebug() << "Asiakas" << pREST_APIDLL->getAsiakas();
     ui->accountOwner->setText(pREST_APIDLL->getAsiakas());
-
 }
 
 void BankMain::RestApistaPois2()
@@ -95,6 +97,12 @@ void BankMain::aloitatimer30()
 }
 void BankMain::suljemainikkuna()
 {
-     this->close();
+    this->close();
+}
+
+void BankMain::RestApistaPois3()
+{
+    qDebug() << "Tilitapahtumat" << pREST_APIDLL->gettilitapahtumat();
+    ui->lineEdit->setText(pREST_APIDLL->gettilitapahtumat());
 }
 

@@ -36,6 +36,19 @@ void REST_APIDLL::tiliTiedot()
     qDebug() << "REST APISSA";
 }
 
+void REST_APIDLL::tiliTapahtumat()
+{
+    QString base_url="http://localhost:3000/tilitapahtumat";
+    QNetworkRequest request((base_url));
+    getManager = new QNetworkAccessManager;
+
+    connect(getManager, SIGNAL(finished(QNetworkReply*)),
+            this, SLOT(getTiliTapahtumat(QNetworkReply*)));
+
+    reply = getManager->get(request);
+    qDebug() << "REST APISSA";
+}
+
 
 void REST_APIDLL::getAsiakas(QNetworkReply *reply)
 {
@@ -67,9 +80,29 @@ void REST_APIDLL::getTili(QNetworkReply *reply)
     emit pois2();
 }
 
+void REST_APIDLL::getTiliTapahtumat(QNetworkReply *reply)
+{
+    response_data=reply->readAll();
+    qDebug()<<"DATA : "+response_data;
+    QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
+    QJsonArray json_array = json_doc.array();
+    foreach (const QJsonValue &value, json_array) {
+       QJsonObject json_obj = value.toObject();
+       tilitapahtumat+=QString::number(json_obj["Summa"].toInt())+", "+json_obj["Tapahtuma"].toString()+", "+json_obj["PaivajaAika"].toInt()+"\r";
+    }
+    reply->deleteLater();
+    getManager->deleteLater();
+    emit pois3();
+}
+
 const QString &REST_APIDLL::getSaldo() const
 {
     return saldo;
+}
+
+const QString &REST_APIDLL::gettilitapahtumat() const
+{
+    return tilitapahtumat;
 }
 
 const QString &REST_APIDLL::getAsiakas() const
