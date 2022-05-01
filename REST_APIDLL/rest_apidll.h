@@ -18,6 +18,7 @@ public:
     void tiliTapahtumat();
 
     void addtilitapahtumat(int summa);
+    void updatetili(int tulos);
 
     const QString &getAsiakas() const;
     const QString &getSaldo() const;
@@ -33,10 +34,12 @@ private slots:
     void getTili(QNetworkReply *reply);
     void getTiliTapahtumat(QNetworkReply *reply);
     void addTiliTapahtumat(QNetworkReply *reply);
+    void updateTiliSlot (QNetworkReply *reply);
 
 private:
     QNetworkAccessManager *getManager;
     QNetworkAccessManager *postManager;
+    QNetworkAccessManager *putManager;
     QNetworkReply *reply;
     QByteArray response_data;
     QString asiakas;
