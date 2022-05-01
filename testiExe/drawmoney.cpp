@@ -10,11 +10,13 @@ drawmoney::drawmoney(QWidget *parent) :
 
     pREST_APIDLL = new REST_APIDLL;
     timer = new QTimer();
-    connect(this->timer,SIGNAL(timeout()),
-                this,SLOT(suljedrawikkuna()));
 
+    pREST_APIDLL->tiliTiedot();
+
+    connect(this->timer,SIGNAL(timeout()),
+            this,SLOT(suljedrawikkuna()));
     connect(this, SIGNAL(sulje_6()),
-    this, SLOT(aloitatimer10_2()));
+            this, SLOT(aloitatimer10_2()));
 
 }
 
@@ -23,6 +25,7 @@ drawmoney::~drawmoney()
     delete ui;
     delete timer;
     delete pREST_APIDLL;
+    summa=0;
 }
 
 
@@ -91,13 +94,27 @@ void drawmoney::on_viisisataa_clicked()
 void drawmoney::on_drawbutton_clicked()
 {
     emit sulje_6();
-    qDebug()<<summa;
+    qDebug()<< "Summa" <<summa;
 
     if(summa==0){
         qDebug()<<"ei summaa valittu";
     }
     else{
-        pREST_APIDLL->addtilitapahtumat(summa);
+
+        QString Stringsaldo = pREST_APIDLL->getSaldo();
+        qDebug()<<"Saldo"<<Stringsaldo;
+        int saldo = Stringsaldo.toInt();
+            if(saldo<summa){
+                ui->lineEdit->setText("Not enough balance");
+            }
+            else{
+
+                int tulos=saldo-summa;
+                qDebug()<<"Uusi Saldo"<<tulos;
+
+                pREST_APIDLL->updatetili(tulos);
+                pREST_APIDLL->addtilitapahtumat(summa);
+            }
     }
 }
 
