@@ -21,6 +21,10 @@ public:
     explicit drawmoney(QWidget *parent = nullptr);
     ~drawmoney();
 
+    int getTulos() const;
+
+    const QString &getTulos2() const;
+
 signals:
     void sulje_6();
 public slots:
@@ -41,12 +45,14 @@ private slots:
 
 private:
     int summa=0;
-    QString tapahtuma="Nosto";
-
+    QString tapahtuma="Draw";
+    QString Stringsaldo;
+    int saldo;
     Ui::drawmoney *ui;
     QTimer *timer;
     REST_APIDLL *pREST_APIDLL;
-
+    int tulos;
+    QString tulos2;
 };
 
 #endif // DRAWMONEY_H

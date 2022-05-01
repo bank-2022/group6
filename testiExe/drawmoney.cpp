@@ -101,19 +101,22 @@ void drawmoney::on_drawbutton_clicked()
     }
     else{
 
-        QString Stringsaldo = pREST_APIDLL->getSaldo();
+        Stringsaldo = pREST_APIDLL->getSaldo();
         qDebug()<<"Saldo"<<Stringsaldo;
-        int saldo = Stringsaldo.toInt();
+        saldo = Stringsaldo.toInt();
             if(saldo<summa){
                 ui->lineEdit->setText("Not enough balance");
             }
             else{
 
-                int tulos=saldo-summa;
+                tulos=saldo-summa;
+                int tulos3 = tulos;
                 qDebug()<<"Uusi Saldo"<<tulos;
 
+                tulos2 = QString::number(tulos3);
                 pREST_APIDLL->updatetili(tulos);
                 pREST_APIDLL->addtilitapahtumat(summa);
+
             }
     }
 }
@@ -129,4 +132,9 @@ void drawmoney::aloitatimer10_2()
 void drawmoney::suljedrawikkuna()
 {
     this->close();
+}
+
+const QString &drawmoney::getTulos2() const
+{
+    return tulos2;
 }
