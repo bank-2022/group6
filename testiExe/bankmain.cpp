@@ -57,8 +57,6 @@ void BankMain::on_nextactions_clicked()
 }
 
 
-
-
 void BankMain::on_money_clicked()
 {
     pDrawMoney->show();
@@ -74,6 +72,8 @@ void BankMain::on_close_clicked()
 
 void BankMain::on_pushButton_clicked()
 {
+    ui->balance->setText(pDrawMoney->getTulos2());
+    qDebug() << pDrawMoney->getTulos2();
     emit sulje_4();
 }
 
