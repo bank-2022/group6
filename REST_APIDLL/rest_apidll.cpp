@@ -92,7 +92,7 @@ void REST_APIDLL::getTiliTapahtumat(QNetworkReply *reply)
     QJsonArray json_array = json_doc.array();
     foreach (const QJsonValue &value, json_array) {
        QJsonObject json_obj = value.toObject();
-       tilitapahtumat+=QString::number(json_obj["Summa"].toInt())+", "+json_obj["Tapahtuma"].toString()+", "+json_obj["PaivajaAika"].toInt()+"\r";
+       tilitapahtumat+=QString::number(json_obj["Summa"].toInt())+", "+json_obj["Tapahtuma"].toString()+"\n";
     }
     reply->deleteLater();
     getManager->deleteLater();

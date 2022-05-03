@@ -25,6 +25,7 @@ public:
 
 signals:
     void avaaikkuna();
+    void idLuettu();
 
 public slots:
     void engineslot();

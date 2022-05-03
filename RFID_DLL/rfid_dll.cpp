@@ -79,7 +79,7 @@ void RFID_DLL::engineslot()
         muutettu.remove(QRegularExpression("[>]"));
         qDebug() << muutettu;
     }
-
+    emit idLuettu();
 
 }
 
