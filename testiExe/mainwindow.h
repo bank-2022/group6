@@ -36,8 +36,6 @@ private slots:
     void lahetaeteenpain();
     void signaalitakaisin();
 
-    void on_toinennappi_clicked();
-
 private:
     Ui::MainWindow *ui;
     PinDll * PinDllClass;

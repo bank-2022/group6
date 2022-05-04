@@ -139,7 +139,7 @@ void REST_APIDLL::updatetili(int tulos)
     jsonObj.insert("Tilinumero",Tilinumero);
     jsonObj.insert("Saldo",tulos);
 
-    QString base_url="http://localhost:3000/tili/1";
+    QString base_url="http://localhost:3000/tili/15";
     QNetworkRequest request((base_url));
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
