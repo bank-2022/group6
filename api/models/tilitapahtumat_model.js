@@ -5,7 +5,7 @@ const tilitapahtumat = {
     return db.query('select * from tilitapahtumat where id_tilitapahtumat=?', [id], callback);
   },
   getAll: function(callback) {
-    return db.query('select * from tilitapahtumat', callback);
+    return db.query('SELECT * FROM tilitapahtumat ORDER BY idTilitapahtumat DESC', callback);
   },
   add: function(tilitapahtumat, callback) {
     return db.query(
