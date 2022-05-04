@@ -41,6 +41,8 @@ BankMain::~BankMain()
 
 void BankMain::on_actions_clicked()
 {
+    qDebug() << "Uusi tapahtuma" << pREST_APIDLL->gettilitapahtumat();
+    ui->textEdit->setText(pREST_APIDLL->gettilitapahtumat());
     emit sulje_4();
 }
 
@@ -103,6 +105,5 @@ void BankMain::suljemainikkuna()
 void BankMain::RestApistaPois3()
 {
     qDebug() << "Tilitapahtumat" << pREST_APIDLL->gettilitapahtumat();
-    ui->lineEdit->setText(pREST_APIDLL->gettilitapahtumat());
 }
 

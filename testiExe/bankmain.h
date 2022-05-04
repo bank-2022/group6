@@ -24,6 +24,7 @@ signals:
     void sulje_4();
     void sulje_5();
 
+
 public slots:
     void aloitatimer30();
 
@@ -38,6 +39,7 @@ private slots:
     void RestApistaPois2();
     void suljemainikkuna();
     void RestApistaPois3();
+
 
 private:
     Ui::BankMain *ui;

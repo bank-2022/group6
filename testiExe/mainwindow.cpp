@@ -12,8 +12,9 @@ MainWindow::MainWindow(QWidget *parent)
     Ppinikkuna = new pinikkuna;
     pRFID_DLL = new RFID_DLL;
     Pbankmain = new BankMain;
+
     QObject::connect(pRFID_DLL, SIGNAL(idLuettu()),
-            this, SLOT(signaalitakaisin()));
+                     this, SLOT(signaalitakaisin()));
     QObject::connect(this, SIGNAL(nappipainettu()),
                      this, SLOT(lahetaeteenpain()));
     QObject::connect(this, SIGNAL(RFID_signaalitakaisin()),
@@ -30,7 +31,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     QObject::connect(Ppinikkuna, SIGNAL(lukitse()),
     this, SLOT(korttilukittu()));
-
 
 }
 
