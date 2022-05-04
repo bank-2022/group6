@@ -31,20 +31,6 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="previous">
-      <property name="text">
-       <string>Prev 10 Actions</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="nextactions">
-      <property name="text">
-       <string>Next 10 Actions</string>
-      </property>
-     </widget>
-    </item>
-    <item>
      <widget class="QPushButton" name="money">
       <property name="text">
        <string>Draw Money</string>
