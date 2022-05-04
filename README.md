@@ -1,1 +1,1 @@
-# group6
+# group6 Pankkiprojekti
