@@ -15,7 +15,7 @@ pinikkuna::pinikkuna(QWidget *parent) :
 
     timer = new QTimer();
     connect(this->timer,SIGNAL(timeout()),
-                this,SLOT(suljedrawikkuna()));
+                this,SLOT(suljepinikkuna()));
 
 }
 

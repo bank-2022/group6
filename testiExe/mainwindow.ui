@@ -17,14 +17,14 @@
    <widget class="QPushButton" name="avaa">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>290</y>
+      <x>290</x>
+      <y>270</y>
       <width>191</width>
       <height>91</height>
      </rect>
     </property>
     <property name="text">
-     <string>avaa</string>
+     <string>Open</string>
     </property>
    </widget>
    <widget class="QLabel" name="label">
@@ -40,17 +40,17 @@
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="toinennappi">
+   <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>410</x>
-      <y>150</y>
-      <width>191</width>
-      <height>81</height>
+      <x>240</x>
+      <y>190</y>
+      <width>331</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>ilman rfid</string>
+     <string>Press the button and put your card on the reader!</string>
     </property>
    </widget>
   </widget>

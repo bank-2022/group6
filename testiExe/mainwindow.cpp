@@ -76,10 +76,3 @@ void MainWindow::signaalitakaisin()
     qDebug() << "Data EXE:ssä" << muutettu;
     emit pinIkkuna();
 }
-
-
-void MainWindow::on_toinennappi_clicked()
-{
-    emit pinIkkuna();
-}
-
